@@ -1,0 +1,22 @@
+<table>
+    <thead>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>Temp. (Degrees C)</td>
+        <td>Snow (cm)</td>
+        <td>Wind (km/h)</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of day">
+        <td>{{item.t_txt}}</td>
+        <td class="description">
+          <img [src]="'http://openweathermap.org/img/w/'+item.weather[0].icon+'.png'">{{item.weather[0].description}}
+        </td>
+        <td>{{item.main.temp | number:'1.0-1'}}&deg;</td>
+        <td>{{item.snow['3h'] | number:'1.0-0' }}</td>
+        <td>{{item.wind.speed | number:'1.0-0'}}</td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,17 @@
+<section>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <h1>Chamonix 5 day weather forecast</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-tab-group>
+      <mat-tab *ngFor="let key of objectKeys(forecastGroupedByDay)">
+        <ng-template mat-tab-label>
+          {{forecastGroupedByDay[key][0].calendar_date}}
+        </ng-template>
+        <app-forecast-day [day]="forecastGroupedByDay[key]"></app-forecast-day>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</section>

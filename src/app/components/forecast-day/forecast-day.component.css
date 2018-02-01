@@ -1,0 +1,27 @@
+table {
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 0.8rem;
+}
+
+table thead td {
+  color: grey;
+  line-height: 3rem;
+}
+
+table tbody td {
+  border-bottom: 1px solid #eeecec;
+}
+
+table tbody td.description {
+  text-align: left;
+  padding-left: 40px;
+}
+
+table img {
+  vertical-align: middle;
+  margin-right: 10px;
+}
