@@ -36,7 +36,10 @@ export class AppComponent {
     this.weatherService.getItemsGroupedByDay()
       .subscribe((data:Object) => {
         this.forecastGroupedByDay = data;
-      })
+      },
+      err => {
+        // TODO - Should provide generic error message to user
+      });
   }
 
 }

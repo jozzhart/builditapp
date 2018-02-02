@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTabsModule, MatListModule, MatDividerModule, MatDivider, MatCardModule, MatTableModule } from '@angular/material';
+import { MatTabsModule, MatCardModule, MatTableModule } from '@angular/material';
 
 /* Services */
 import { WeatherService } from './services/weather.service';
@@ -22,8 +22,6 @@ import { ForecastDayComponent } from './components/forecast-day/forecast-day.com
     HttpClientModule,
     NoopAnimationsModule,
     MatTabsModule,
-    MatListModule,
-    MatDividerModule,
     MatTableModule,
     MatCardModule
   ],

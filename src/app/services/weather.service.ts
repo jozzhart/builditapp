@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from "@angular/common/http";
+import { HttpClient, HttpResponse, HttpErrorResponse } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
-import 'rxjs/add/observable/of';
-import 'rxjs/add/observable/from';
+import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/catch';
 
 import { ForecastItem } from '../interfaces/forecast-item.interface'
 
@@ -20,6 +19,7 @@ export class WeatherService {
     return this.http
       .get('https://api.openweathermap.org/data/2.5/forecast?id=3027301')
       .map((response: any) => {
+
         response.list.forEach((element, i) => {
           element.d_txt = element.dt_txt.split(' ')[0];
           element.t_txt = element.dt_txt.split(' ')[1].replace(':00:00', ':00');
@@ -34,6 +34,11 @@ export class WeatherService {
           if (element.snow) element.snow['3h'] = element.snow['3h'] ? element.snow['3h'] : 0;
         });
         return response.list;
+      })
+      .catch((err: HttpErrorResponse) => {
+        // Log error for now
+        console.error('An error occurred loading Open Weather API:', err.message);
+        return Observable.throw(new Error('Problem with Open Weather API'));
       })
   }
 
